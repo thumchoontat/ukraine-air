@@ -1,0 +1,20 @@
+RewriteEngine On
+
+#Requests without .php extension and with trailing slash
+RewriteCond %{REQUEST_URI} !(\.)
+RewriteCond %{REQUEST_URI} !(.php)
+RewriteCond %{REQUEST_URI} (\/$)
+RewriteRule (.{1,})/ "$1.php" [L]
+
+#Requests for resource other than php files (css, js, etc)
+RewriteCond %{REQUEST_URI} (\.)
+RewriteRule (.{1,}) "$1" [L]
+
+#Requests without .php extension and without trailing slash
+RewriteCond %{REQUEST_URI} !(\.)
+RewriteCond %{REQUEST_URI} !(.php)
+RewriteRule (.{1,}) "$1.php" [L]
+
+#Override default home page
+RewriteCond %{REQUEST_URI} "ukraine-air/home"
+RewriteRule (.{1,}) index.php [L]

@@ -1,5 +1,5 @@
 <?php 
-$resourceDir = APP_DIR.'/resource';
+$resourceDir = '/resource';
 $bootstrapDir = $resourceDir . '/bootstrap-3.3.7';
 echo "
 	<script src=\"$resourceDir/jquery/jquery.min.js\"></script>

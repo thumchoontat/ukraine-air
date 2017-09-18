@@ -1,5 +1,11 @@
 RewriteEngine On
 
+#Override default home page
+RewriteCond %{REQUEST_URI} (^/ukraine\-air/home$) [OR]
+RewriteCond %{REQUEST_URI} (^/ukraine\-air/home/$) [OR]
+RewriteCond %{REQUEST_URI} (^/ukraine\-air/home?$) 
+RewriteRule (.{1,}) index.php [L]
+
 #Requests without .php extension and with trailing slash
 RewriteCond %{REQUEST_URI} !(\.)
 RewriteCond %{REQUEST_URI} !(.php)
@@ -15,6 +21,3 @@ RewriteCond %{REQUEST_URI} !(\.)
 RewriteCond %{REQUEST_URI} !(.php)
 RewriteRule (.{1,}) "$1.php" [L]
 
-#Override default home page
-RewriteCond %{REQUEST_URI} "ukraine-air/home"
-RewriteRule (.{1,}) index.php [L]

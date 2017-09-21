@@ -8,7 +8,7 @@
 	$user = new User($_REQUEST);
 	if ($user->valid()){
 		if ($user->registerUser()){
-			$message->set('Registration successful');
+			$message->set('Registration successful','success');
 			$user->clear();
 		}
 		else{

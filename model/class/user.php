@@ -68,12 +68,9 @@
 			return $this->validDisplayName() && $this->validUsername() && $this->validPassword() && $this->passwordsMatch();
 		}
 		
-		public function registerUser(&$message = null){
+		public function registerUser(){
 			if ($this->valid()){
 				$conn = $this->db->getConn();
-				if (!$conn->ping() && $message !== null){
-					$message->set('Service unavailable. Please try again later','danger');
-				}
 				$stmt = $conn->prepare('INSERT INTO `user` (`username`,`hashpass`, `displayName`) VALUES (?,?,?)');
 				$stmt->bind_param("sss", $this->username, $this->getHashedPassword(), $this->displayName);
 				return $stmt->execute();

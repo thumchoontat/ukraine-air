@@ -69,6 +69,7 @@
 		}
 		
 		public function registerUser(){
+			try{
 			if ($this->valid()){
 				$conn = $this->db->getConn();
 				$stmt = $conn->prepare('INSERT INTO `user` (`username`,`hashpass`, `displayName`) VALUES (?,?,?)');
@@ -76,6 +77,11 @@
 				return $stmt->execute();
 			}
 			return false;
+			}
+			catch (Exception $ex){
+				var_dump($ex);
+				return false;
+			}
 		}
 		
 		public function login(&$message = null){

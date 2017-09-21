@@ -2,7 +2,7 @@
 // error_reporting(0);
 session_start();
 require_once('model/class/message.php');
-
+$message = new Message();
 // Page directory cleanup
 require_once('directory.php');
 
@@ -14,7 +14,7 @@ if ($dirExists && file_exists($pageDir.'core.php')){
 	include $pageDir.'core.php';
 }
 
-$message = new Message();
+
 
 ?>
 <!DOCTYPE html>

@@ -7,6 +7,7 @@
 	
 	$user = new User($_REQUEST);
 	if ($user->valid()){
+		try{
 		if ($user->registerUser()){
 			$message->set('Registration successful','success');
 			$user->clear();
@@ -14,5 +15,7 @@
 		else{
 			$message->set('Username "'.$user->getUsername().'" has been used.','warning');
 		}
+		}
+		catch (Exception $e){var_dump($e);}
 	}
 ?>

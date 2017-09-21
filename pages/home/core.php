@@ -1,5 +1,10 @@
 <?php 
-	const PAGE_TITLE = 'Ticket List';
+	if ($validUser){
+		define('PAGE_TITLE', 'Ticket List');
+	}
+	else{
+		define('PAGE_TITLE', 'UIA');
+	}
 	
 	require_once('model/function/ticket.php');
 	

@@ -1,0 +1,83 @@
+.seat-map input[type="checkbox"]{
+	display: none;
+}
+
+.seat-map input:checked+label{
+	background-color: #33ff33;
+}
+
+.seat-map input:checked+label:hover{
+	background-color: #33ff33;
+}
+
+.actions{
+	padding: 5px 0;
+}
+
+.info{
+	width: auto;
+	float: left;
+	display: inline-block;
+	padding: 5px;
+}
+
+.info, .seat-map{
+	max-width: 45%;
+}
+
+.info .input-group{
+	margin: 10px 0;
+}
+
+.info .input-group-addon{
+	min-width: 130px;
+}
+
+.legend{
+	/* width: auto; */
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.legend .title{
+	font-weight: bold;
+}
+
+/* Seat map */
+.seat-map-container{
+	padding: 5px 10px;
+	display: inline-block;
+	width: 100%;
+}
+
+.seat-map{
+	text-align: center;
+	width: auto;
+	width: auto;
+	display: inline-block;
+	float: right;
+}
+
+.front{
+	font-size: 15pt;
+	background-color: #e6e6e6;
+}
+
+.seat-map .seat-row{
+	text-align: center;
+	vertical-align: middle;
+	padding: 0 10px;
+}
+
+.seat-map .seat-row label{
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 60px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.seat-map label:hover{
+	background-color: #ccffcc;
+}
+/* END Seat map */

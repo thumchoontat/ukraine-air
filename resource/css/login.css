@@ -1,0 +1,25 @@
+/* Bootstrap extensions */
+div.input-group{
+	margin: 5px 0;
+}
+
+span.input-group-addon{
+	min-width: 100px;
+}
+/* Bootstrap extensions */
+
+div.actions{
+	text-align: center;
+}
+
+label.error{
+	color: red;
+}
+
+label.error:before{
+	content: '*';
+}
+
+label.error:empty{
+	display: none;
+}

@@ -1,0 +1,19 @@
+#searchFlight{
+	cursor: default;
+}
+
+table thead th, table tbody td{
+	text-align: center;
+}
+
+table thead th{
+	vertical-align: middle !important;
+}
+
+table tbody tr:nth-child(odd){
+	background-color: #e6e6e6;
+}
+
+table tbody tr:hover{
+	background-color: #ccffcc;
+}

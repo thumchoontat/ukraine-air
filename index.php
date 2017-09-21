@@ -1,28 +1,78 @@
 <?php 
-var_dump($_SERVER['SCRIPT_NAME']);
-//error_reporting(0);
-$filePath = $_SERVER['SCRIPT_NAME'];
-// If .php extension is not found, add it in
-if (!preg_match("(.php)",$filePath)){
-	$filePath = preg_replace('(\/$)','',$filePath).'.php';
+// error_reporting(0);
+session_start();
+require_once('model/class/message.php');
+
+// Page directory cleanup
+require_once('directory.php');
+
+// Checks for session validity
+require_once('session.php');
+
+// Include page functions if exists
+if ($dirExists && file_exists($pageDir.'core.php')){
+	include $pageDir.'core.php';
 }
+
+$message = new Message();
+
 ?>
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8"></meta>
+	<title>
+		<?php 
+			if (defined('PAGE_TITLE')){
+				echo PAGE_TITLE;
+			}
+			else{
+				echo 'UIA';
+			}
+		?>
+	</title>
 	<?php include "/template/sources.php";?>
-	<title></title>
+	<?php 
+		if ($dirExists && file_exists($pageDir.'resource.php')){
+			include $pageDir.'resource.php';
+		}
+	?>
+	
+	<?php if ($message->hasMessage()) {?>
+		<script>
+		$(document).ready(function(){
+			alert('<?php echo $message->getContent(); ?>','<?php echo $message->getType(); ?>');
+		});
+		</script>
+	<?php } ?>
 </head>
 <body>
 	<?php include "template/header.php";?>
+	
+	<?php if (!preg_match('/(index|home)/',$pageDir)){ ?>
+	<div class="page-title"><?php 
+			if (defined('PAGE_TITLE')){
+				echo PAGE_TITLE;
+			}
+			else{
+				echo 'UIA';
+			}
+	?></div>
+	<?php }// END check index page ?>
+	
 	<?php 
-		if ($filePath == '/index.php'){
-			//include 'view/home.php';
-		}
-		else if (file_exists($filePath)){
-			echo 'file exists';
+		if ($dirExists){
+			if (file_exists($pageDir.'content.php')){
+				include $pageDir.'content.php';
+			}
+			else{
+				include '/template/content.php';
+			}
 		}
 		else{
-			echo 'file not exists';
+			$errorCode = 404;
+			$errorMessage = '"'.preg_replace('/^pages\//','',$pageDir).'" not found.';
+			include '/pages/error/content.php';
 		}
 	?>
 	<?php include "template/footer.php" ?>

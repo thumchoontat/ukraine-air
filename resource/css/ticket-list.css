@@ -1,0 +1,13 @@
+table thead th{
+	text-align: center;
+	vertical-align: middle !important;
+}
+
+table tbody tr:nth-child(odd){
+	background-color: #e6e6e6;
+}
+
+/* bootstrap addons */
+.input-group-addon{
+	min-width: 150px;
+}

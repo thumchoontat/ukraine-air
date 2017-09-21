@@ -73,7 +73,8 @@
 			if ($this->valid()){
 				$conn = $this->db->getConn();
 				$stmt = $conn->prepare("INSERT INTO `user` (`username`,`hashpass`, `displayName`) VALUES (?,?,?)");
-				$stmt->bind_param("sss", $this->username, $this->getHashedPassword(), $this->displayName);
+				$hashPass = $this->getHashedPassword();
+				$stmt->bind_param("sss", $this->username, $hashPass, $this->displayName);
 				return $stmt->execute();
 			}
 			return false;

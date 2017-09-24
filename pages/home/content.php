@@ -23,20 +23,11 @@
 			<input type="date" class="form-control" name="book-to" value="<?php echo $bookTo; ?>"/>
 		</div>
 		<br/>
-		<div class="input-group">
-			<span class="input-group-addon">Flight Date From</span>
-			<input type="date" class="form-control" name="flight-from" value="<?php echo $flightFrom; ?>"/>
-		</div>
-		<div class="input-group">
-			<span class="input-group-addon">Flight Date To</span>
-			<input type="date" class="form-control" name="flight-to" value="<?php echo $flightTo; ?>"/>
-		</div>
-		<br/>
 		<button class="btn btn-success">Search Tickets</button>
 	</form>
 	
 	<?php 
-		$tickets = getTickets($bookFrom, $bookTo, $flightFrom, $flightTo, $_SESSION['username']);
+		$tickets = getTickets($bookFrom, $bookTo, $_SESSION['username']);
 		$ticketCount = $tickets->num_rows;
 	?>
 	<table class="table">

@@ -12,4 +12,13 @@
 		}
 		return false;
 	});
+	
+	$displayName = null;
+	if ($validUser){
+		$conn = DBConnector::getInstance()->getConn();
+		$stmt = $conn->prepare('SELECT `displayName` FROM `user` WHERE `username` = ?');
+		$stmt->bind_param("s",$_SESSION['username']);
+		$stmt->execute();
+		$displayName = $stmt->get_result()->fetch_assoc()['displayName'];
+	}
 ?>

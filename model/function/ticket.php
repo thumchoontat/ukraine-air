@@ -1,7 +1,7 @@
 <?php 
 	require_once('model/class/dbconnector.php');
 	
-	function getTickets($bookFrom, $bookTo, $flightFrom, $flightTo, $username){
+	function getTickets($bookFrom, $bookTo, $username){
 		$db = DBConnector::getInstance();
 		$conn = $db->getConn();
 		$stmt = $conn->prepare("
@@ -24,12 +24,8 @@
 				DATE(`booking`.`bookingDate`) >= ?
 				AND
 				DATE(`booking`.`bookingDate`) <= ?
-				AND
-				DATE(`flight`.`departureTime`) >= ?
-				AND
-				DATE(`flight`.`departureTime`) <= ?
 		");
-		$stmt->bind_param("sssss", $username, $bookFrom, $bookTo, $flightFrom, $flightTo);
+		$stmt->bind_param("sss", $username, $bookFrom, $bookTo);
 		$stmt->execute();
 		return $stmt->get_result();
 	}// function getTickets

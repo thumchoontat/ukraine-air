@@ -73,7 +73,7 @@
 				value="<?php echo $name; ?>"
 				placeholder="Passenger Name"
 				data-toggle="popover"
-				title="Display Name"
+				title="Passenger Name"
 				data-placement="right"
 				data-html="true"
 				data-content="The allowed charcaters are:<br/>

@@ -22,6 +22,7 @@
 					<a href="login" class="btn btn-success navbar-btn">Login</a>
 				<?php }
 					  else{ ?>
+					  Welcome, <?php echo $displayName; ?>
 					<a href="logout" class="btn btn-success navbar-btn">Logout</a>
 				<?php } ?>
 			</div>

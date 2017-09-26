@@ -14,8 +14,6 @@ if ($dirExists && file_exists($pageDir.'core.php')){
 	include $pageDir.'core.php';
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html>

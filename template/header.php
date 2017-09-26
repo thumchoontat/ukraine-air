@@ -23,7 +23,7 @@
 				<?php }
 					  else{ ?>
 					  Welcome, <?php echo $displayName; ?>
-					<a href="logout" class="btn btn-success navbar-btn">Logout</a>
+					<a href="/logout" class="btn btn-success navbar-btn">Logout</a>
 				<?php } ?>
 			</div>
 		</div>
